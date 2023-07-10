@@ -1,0 +1,15 @@
+$colors: (
+  "primary": #f38181,
+  "secondary": #fce38a,
+  "white": #fff,
+  "dimgray": #333333,
+  "gray": #999999,
+  "lightgray": #e5e5e5,
+  "tertiary": #95e1d3,
+  "primary-gradient": #f38181e6,
+  "secondary-gradient": #fce38ae6,
+);
+
+@function getColor($key) {
+  @return map-get($colors, $key);
+}

@@ -1,0 +1,109 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/variables";
+
+.navigation {
+  display: grid;
+  grid-column: content-start / content-end;
+  grid-template-columns: repeat(
+    12,
+    [main-col-start] minmax(min-content, 100px) [main-col-end]
+  );
+  transform: translateY(100%);
+  padding: 20px 20px;
+  margin-top: -210px;
+
+  &__logo {
+    grid-column: main-col-start 1 / main-col-end 4;
+    font-size: fonts.$font-medium;
+    font-weight: fonts.$font-bold;
+    color: colors.getColor("white");
+  }
+
+  &__nav {
+    grid-column: main-col-start 5 / main-col-end 12;
+    justify-self: end;
+    text-transform: uppercase;
+    display: none;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(7, min-content);
+    gap: 35px;
+  }
+
+  &__item {
+    justify-self: end;
+    position: relative;
+
+    &--active {
+      a {
+        color: colors.getColor("secondary");
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 4px;
+        width: 100%;
+        margin-top: 10px;
+        background-color: colors.getColor("secondary");
+      }
+    }
+  }
+
+  &__link {
+    color: colors.getColor("white");
+    font-size: fonts.$font-small;
+    transition: color variables.$duration variables.$timingfunction;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: colors.getColor("secondary");
+    }
+  }
+
+  &__icon {
+    fill: colors.getColor("white");
+    width: 17px;
+    height: 17px;
+    transition: fill variables.$duration variables.$timingfunction;
+
+    &:hover,
+    &:active,
+    &:focus {
+      fill: colors.getColor("secondary");
+    }
+  }
+
+  &__menu-button {
+    grid-column: main-col-start 5 / main-col-end 12;
+    justify-self: end;
+    fill: colors.getColor("white");
+    width: 24px;
+    height: 16px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navigation {
+    &__menu-button {
+      display: none;
+    }
+
+    &__nav {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navigation {
+    &__list {
+      gap: 50px;
+    }
+  }
+}

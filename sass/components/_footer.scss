@@ -1,0 +1,88 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/variables";
+
+.footer {
+  grid-column: content-start / content-end;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid colors.getColor("lightgray");
+  padding: 20px 20px;
+  gap: 20px;
+  text-align: center;
+
+  &__copyright {
+    justify-self: center;
+    font-size: fonts.$font-small;
+
+    span {
+      color: colors.getColor("primary");
+    }
+  }
+
+  &__form {
+    justify-self: center;
+    padding: 10px 0;
+  }
+
+  &__input {
+    width: 223px;
+    height: 40px;
+    border: 1px solid colors.getColor("lightgray");
+    color: colors.getColor("dimgray");
+    background-color: colors.getColor("white");
+    padding-left: 7px;
+    font-size: fonts.$font-normal;
+    font-family: fonts.$font-tertiary;
+    font-weight: fonts.$font-thin;
+    margin-right: -5px;
+    margin-bottom: 10px;
+
+    &::placeholder {
+      color: colors.getColor("lightgray");
+      font-style: italic;
+    }
+  }
+
+  &__button {
+    height: 42px;
+    width: 150px;
+    background-color: colors.getColor("tertiary");
+    color: colors.getColor("white");
+    font-weight: fonts.$font-bold;
+    font-size: fonts.$font-small;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: background-color variables.$duration variables.$timingfunction;
+
+    &:hover {
+      background-color: colors.getColor("primary");
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+
+    &__copyright {
+      justify-self: start;
+      align-self: center;
+      font-size: fonts.$font-small;
+
+      span {
+        color: colors.getColor("primary");
+      }
+    }
+
+    &__form {
+      justify-self: end;
+      padding: 10px 0;
+    }
+
+    &__input {
+      margin-bottom: 0;
+    }
+  }
+}

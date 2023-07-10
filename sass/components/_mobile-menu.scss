@@ -1,0 +1,102 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/variables";
+
+.mobile-menu {
+  background-color: colors.getColor("white");
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform variables.$duration variables.$timingfunction;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  &__button {
+    justify-self: end;
+    grid-column: 2 / 3;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding-right: 30px;
+    padding-top: 30px;
+
+    &:hover {
+      fill: colors.getColor("primary");
+    }
+  }
+
+  &__navigation {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+
+  &__list {
+    display: grid;
+    row-gap: 10px;
+    font-size: fonts.$font-medium;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+  }
+
+  &__link {
+    color: colors.getColor("primary");
+
+    &--active {
+      color: colors.getColor("secondary");
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: colors.getColor("secondary");
+    }
+  }
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+    fill: colors.getColor("primary");
+
+    &:hover,
+    &:active,
+    &:focus {
+      fill: colors.getColor("secondary");
+    }
+  }
+
+  &__social-list {
+    align-self: end;
+    font-size: fonts.$font-moderate;
+    line-height: 1.22;
+    letter-spacing: 0.02em;
+    font-weight: fonts.$font-medium-bold;
+    padding: 30px 30px;
+  }
+
+  &__social-link {
+    text-decoration: none;
+    color: colors.getColor("primary");
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .mobile-menu {
+    &__button {
+      top: 20px;
+      right: 59px;
+    }
+
+    &__list {
+      font-size: fonts.$font-substantial;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.main {
+  display: grid;
+  grid-column: content-start / content-end;
+  grid-template-rows: repeat(2, min-content);
+  grid-template-columns: repeat(
+    12,
+    [main-col-start] minmax(min-content, 100px) [main-col-end]
+  );
+}

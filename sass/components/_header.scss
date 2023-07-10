@@ -1,0 +1,57 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/variables";
+
+.header {
+  grid-column: full-start / full-end;
+  background-image: linear-gradient(
+      0deg,
+      colors.getColor("secondary-gradient") 0%,
+      colors.getColor("primary-gradient") 100%
+    ),
+    url("../../images/eagle.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content 1fr;
+  row-gap: 15px;
+  padding: 0px 30px;
+
+  &__subheading {
+    justify-self: center;
+    text-align: center;
+    align-self: end;
+  }
+
+  &__head {
+    justify-self: center;
+    text-align: center;
+  }
+
+  &__button {
+    place-self: center;
+    border: 3px solid colors.getColor("white");
+    color: colors.getColor("white");
+    font-size: fonts.$font-small;
+    font-weight: fonts.$font-bold;
+    padding: 12px 32px;
+    text-transform: uppercase;
+    transition: background-color variables.$duration variables.$timingfunction,
+      color variables.$duration variables.$timingfunction;
+
+    &:hover {
+      background-color: colors.getColor("white");
+      color: colors.getColor("dimgray");
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    &__head {
+      width: 80%;
+    }
+  }
+}

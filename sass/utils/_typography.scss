@@ -1,0 +1,88 @@
+@use "./colors";
+@use "./fonts";
+
+.heading-1 {
+  font-size: fonts.$font-large;
+  font-weight: fonts.$font-bold;
+  text-transform: uppercase;
+  color: colors.getColor("white");
+}
+
+.heading-2 {
+  text-transform: uppercase;
+  font-weight: fonts.$font-bold;
+
+  &--light {
+    color: colors.getColor("white");
+    font-size: fonts.$font-big;
+    font-family: fonts.$font-secondary;
+    text-transform: none;
+    font-weight: fonts.$font-regular;
+  }
+
+  &--dark {
+    font-size: fonts.$font-substantial;
+  }
+}
+
+.heading-3 {
+  font-family: fonts.$font-secondary;
+  font-size: fonts.$font-great;
+  font-weight: fonts.$font-regular;
+}
+
+.heading-4 {
+  font-size: fonts.$font-small;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-family: fonts.$font-tertiary;
+  font-size: fonts.$font-normal;
+  line-height: 1.6;
+  color: colors.getColor("gray");
+}
+
+.italic {
+  font-style: italic;
+}
+
+.mb-lg {
+  margin-bottom: 45px;
+}
+
+@media screen and (min-width: 480px) {
+  .heading-1 {
+    font-size: fonts.$font-extensive;
+  }
+
+  .heading-2 {
+    &--light {
+      font-size: fonts.$font-huge;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .heading-1 {
+    font-size: fonts.$font-gigantic;
+  }
+
+  .heading-2 {
+    &--light {
+      font-size: fonts.$font-enormous;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .heading-1 {
+    font-size: fonts.$font-biggest;
+  }
+
+  .heading-2 {
+    &--light {
+      font-size: fonts.$font-colossal;
+    }
+  }
+}
